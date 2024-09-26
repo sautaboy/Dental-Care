@@ -14,7 +14,7 @@
     <%- include('partials/navbar') %>
 
 
-    
+
         <div class="container">
             <h1 class="text-center mt-5">Welcome to Dental Care</h1>
             <p class="text-center">Find your city dental clinics and book your appointments easily!</p>
@@ -29,63 +29,24 @@
 
             <div
                 style="display: flex;  align-items: flex-start;  flex-wrap: wrap; justify-content: space-between; gap: 10px;">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="/clinic/hsaksjd" class="btn btn-primary">Visit Clinic</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="/clinic/hsaksjd" class="btn btn-primary">Visit Clinic</a>
-                    </div>
-                </div>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="/clinic/hsaksjd" class="btn btn-primary">Visit Clinic</a>
+                <%clinics.forEach((clinic)=>{%>
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=clinic.clinicName%>
+                            </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's
+                                content.</p>
+                            <a href="/clinic/<%=clinic._id%>" class="btn btn-primary">Visit Clinic</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="/clinic/hsaksjd" class="btn btn-primary">Visit Clinic</a>
-                    </div>
-                </div>
+                    <%})%>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7-BdwtPWaVpib79xPfvBjnX8m6UrwA6lq_g&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="/clinic/hsh" class="btn btn-primary">Visit Clicnic</a>
-                    </div>
-                </div>
             </div>
         </div>
 

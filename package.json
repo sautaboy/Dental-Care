@@ -11,9 +11,12 @@
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "joi": "^17.13.3",
-    "mongoose": "^8.6.3"
+    "mongoose": "^8.6.3",
+    "nodemailer": "^6.9.15",
+    "twilio": "^5.3.2"
   }
 }

@@ -1,24 +1,30 @@
 const express = require('express');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const clinicRoutes = require('./routes/clinic');
+const db = require("./config/mongoose")
+const clinicModel = require('./models/clinic');
+const clinic = require('./models/clinic');
+
+
 
 const app = express();
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost/dental-care');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+app.use(express.json())
 app.use(express.static('public'));
 
 // Routes
 app.use('/clinic', clinicRoutes);
 
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    let clinics = await clinicModel.find()
+    res.render('index', { clinics });
 });
 
 app.listen(3000, () => {

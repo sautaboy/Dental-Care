@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <%= clinicName %> Clinic
+        <%= clinic.clinicName %>
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
@@ -19,376 +19,399 @@
 
 <body>
 
-    <!-- nav -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Dental Care</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <h1 class="text-center mt-5">
-        <!-- <%= clinicName %> Dental Clinic -->
-
-        Welcome to [Denatl Clinic Name]
-    </h1>
-
-    <!-- Carousel Section -->
-    <div class="container mt-4">
-        <%- include('partials/carousel') %>
-    </div>
 
 
+            <!-- nav -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Dental Care</a>
 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-    <!-- About Us Section -->
-    <div class="container mt-5 py-4"
-        style="background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <h2 class="text-center mb-4">About Us</h2>
-        <div class="row align-items-center">
-
-            <!-- Left Column: Description -->
-            <div class="col-md-6">
-                <h4>Welcome to [Dental Clinic Name]</h4>
-                <p>
-                    At [Your Clinic Name], we are committed to providing the highest quality dental care in a
-                    comfortable
-                    and friendly environment. Our experienced team of dental professionals is dedicated to making your
-                    visit
-                    as pleasant as possible.
-                </p>
-                <p>
-                    We believe that a healthy smile is a beautiful smile, and we offer a range of services to meet your
-                    dental needs, from routine check-ups to advanced cosmetic procedures. Your oral health is our top
-                    priority!
-                </p>
-                <p>
-                    Join us on a journey to better dental health, and let us help you achieve the smile of your dreams.
-                </p>
-            </div>
-
-            <!-- Right Column: Image -->
-            <div class="col-md-6">
-                <img src="https://discoverykidsdental.com/wp-content/uploads/2020/01/kids-teeth.jpg"
-                    class="img-fluid rounded" alt="Dental Care">
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <h4>Meet Our Team</h4>
-            <div class="row">
-
-                <!-- Team Member 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://mediboost.b-cdn.net/wp-content/webp-express/webp-images/uploads/2023/05/website-for-dentists-sydney-mediboost-australia-1080x675.jpg.webp"
-                            class="card-img-top" alt="Dr. John Doe">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. John Doe</h5>
-                            <p class="card-text">Chief Dentist. With over 15 years of experience, Dr. Doe is dedicated
-                                to
-                                providing compassionate care and advanced dental solutions.</p>
-                        </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </nav>
 
-                <!-- Team Member 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://media.istockphoto.com/id/1277540215/photo/portrait-of-a-caucasian-female-dentist-in-her-office.jpg?s=612x612&w=0&k=20&c=e2wmX8LcTZTiAZzbrc6iOUPXaqjcy9qUKmhRQcPYfqI="
-                            class="card-img-top" alt="Dr. Jane Smith">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Jane Smith</h5>
-                            <p class="card-text">Orthodontist. Dr. Smith specializes in creating beautiful smiles with
-                                the
-                                latest orthodontic techniques.</p>
-                        </div>
-                    </div>
-                </div>
+            <h1 class="text-center mt-5">
+                Welcome to
+                <%= clinic.clinicName %>
 
-                <!-- Team Member 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://www.shutterstock.com/image-photo/dentist-portrait-man-arms-crossed-600nw-2336909817.jpg"
-                            class="card-img-top" alt="Dr. Emily Johnson">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Emily Johnson</h5>
-                            <p class="card-text">Cosmetic Dentist. Dr. Johnson is passionate about enhancing smiles
-                                through
-                                cosmetic dentistry.</p>
-                        </div>
-                    </div>
-                </div>
+            </h1>
 
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="container mt-5 py-4">
-        <h2 class="text-center mb-4">Our Services</h2>
-        <div class="row">
-
-            <!-- Service 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThfB2_O9RQEKkZz-oSunlKRRH1IJEqmblwS5LZ6apH-lW81pkic30_SYWEAM2UQ7R_XBo&usqp=CAU"
-                        class="card-img-top" alt="General Checkup">
-                    <div class="card-body">
-                        <h5 class="card-title">General Checkup</h5>
-                        <p class="card-text">Regular dental checkups help maintain oral health and prevent dental
-                            issues.</p>
-                    </div>
-                </div>
+            <!-- Carousel Section -->
+            <div class="container mt-4">
+                <%- include('partials/carousel') %>
             </div>
 
-            <!-- Service 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://t4.ftcdn.net/jpg/08/41/76/61/360_F_841766112_ZS97gVOvbcu7Go374ndTGIBG6cyqAQHF.jpg"
-                        class="card-img-top" alt="Orthodontics">
-                    <div class="card-body">
-                        <h5 class="card-title">Orthodontics</h5>
-                        <p class="card-text">Braces and other orthodontic treatments to straighten teeth and improve
-                            bites.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Service 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyUPhOTONa2VYxaNHXqcjmcDNTMmtpYSdaY1MK524jUvCu6IMe9yCzgvAbUFXBQiMOStg&usqp=CAU"
-                        class="card-img-top" alt="Cosmetic Dentistry">
-                    <div class="card-body">
-                        <h5 class="card-title">Cosmetic Dentistry</h5>
-                        <p class="card-text">Procedures to enhance the appearance of your smile, including whitening and
-                            veneers.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Service 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6hDrVR6CUfJNMF2jiNFOOpSKmg1R6DJ3MR4MJN22LHi83PoJDklRgcwhyJNngjcS2cG0&usqp=CAU"
-                        class="card-img-top" alt="Root Canal Treatment">
-                    <div class="card-body">
-                        <h5 class="card-title">Root Canal Treatment</h5>
-                        <p class="card-text">Treatment for infected or damaged teeth to relieve pain and save the tooth.
+
+            <!-- About Us Section -->
+            <div class="container mt-5 py-4"
+                style="background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <h2 class="text-center mb-4">About Us</h2>
+                <div class="row align-items-center">
+
+                    <!-- Left Column: Description -->
+                    <div class="col-md-6">
+                        <h4>Welcome to <%=clinic.clinicName%>
+                        </h4>
+                        <p>
+                            At [Your Clinic Name], we are committed to providing the highest quality dental care in a
+                            comfortable
+                            and friendly environment. Our experienced team of dental professionals is dedicated to
+                            making your
+                            visit
+                            as pleasant as possible.
+                        </p>
+                        <p>
+                            We believe that a healthy smile is a beautiful smile, and we offer a range of services to
+                            meet your
+                            dental needs, from routine check-ups to advanced cosmetic procedures. Your oral health is
+                            our top
+                            priority!
+                        </p>
+                        <p>
+                            Join us on a journey to better dental health, and let us help you achieve the smile of your
+                            dreams.
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Service 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSHOzN9HXsZFzFAv4O4O6G7xaRfXWlFVA5uRHIYLW8vdELeWTfbEL1KAgz8uxzhR7OQAA&usqp=CAU"
-                        class="card-img-top" alt="Dental Implants">
-                    <div class="card-body">
-                        <h5 class="card-title">Dental Implants</h5>
-                        <p class="card-text">Permanent solutions for missing teeth using implants for a natural look and
-                            feel.</p>
+                    <!-- Right Column: Image -->
+                    <div class="col-md-6">
+                        <img src="https://discoverykidsdental.com/wp-content/uploads/2020/01/kids-teeth.jpg"
+                            class="img-fluid rounded" alt="Dental Care">
                     </div>
                 </div>
-            </div>
 
-            <!-- Service 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhmdLvngowTolj0OGC48VHzleoFrbMHsbyvxxLwkbayfA4W3BQ8UzDn4ksC8lBzJ9b50&usqp=CAU"
-                        class="card-img-top" alt="Emergency Dental Care">
-                    <div class="card-body">
-                        <h5 class="card-title">Emergency Dental Care</h5>
-                        <p class="card-text">Immediate care for dental emergencies such as severe pain or trauma.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-    <!-- Slidable Testimonials Section -->
-    <div class="container mt-5 " id="testimonials" style="max-height: 50vh;">
-        <h2 class="text-center mb-4">What Our Patients Say</h2>
-
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
-            <div class="carousel-inner">
-
-                <!-- First Slide -->
-                <div class="carousel-item active">
+                <div class="mt-5">
+                    <h4>Meet Our Team</h4>
                     <div class="row">
-                        <!-- First Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "The best dental experience I've ever had! The staff is very friendly, and the
-                                        booking system was seamless. Highly recommend!"
-                                    </p>
-                                    <h5 class="card-title mt-3">- John Doe</h5>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Second Testimonial -->
-                        <div class="col-md-4">
+                        <!-- Team Member 1 -->
+                        <div class="col-md-4 mb-4">
                             <div class="card shadow-sm">
+                                <img src="https://mediboost.b-cdn.net/wp-content/webp-express/webp-images/uploads/2023/05/website-for-dentists-sydney-mediboost-australia-1080x675.jpg.webp"
+                                    class="card-img-top" alt="Dr. John Doe">
                                 <div class="card-body">
-                                    <p class="card-text">
-                                        "I was able to find a clinic close to me and book an appointment instantly.
-                                        Amazing
-                                        service and professional dentists!"
-                                    </p>
-                                    <h5 class="card-title mt-3">- Jane Smith</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Third Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Superb experience from start to finish! The online booking system is very easy
+                                    <h5 class="card-title">Dr. John Doe</h5>
+                                    <p class="card-text">Chief Dentist. With over 15 years of experience, Dr. Doe is
+                                        dedicated
                                         to
-                                        use, and I felt comfortable during my visit."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Michael Johnson</h5>
+                                        providing compassionate care and advanced dental solutions.</p>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="https://media.istockphoto.com/id/1277540215/photo/portrait-of-a-caucasian-female-dentist-in-her-office.jpg?s=612x612&w=0&k=20&c=e2wmX8LcTZTiAZzbrc6iOUPXaqjcy9qUKmhRQcPYfqI="
+                                    class="card-img-top" alt="Dr. Jane Smith">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dr. Jane Smith</h5>
+                                    <p class="card-text">Orthodontist. Dr. Smith specializes in creating beautiful
+                                        smiles with
+                                        the
+                                        latest orthodontic techniques.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="https://www.shutterstock.com/image-photo/dentist-portrait-man-arms-crossed-600nw-2336909817.jpg"
+                                    class="card-img-top" alt="Dr. Emily Johnson">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dr. Emily Johnson</h5>
+                                    <p class="card-text">Cosmetic Dentist. Dr. Johnson is passionate about enhancing
+                                        smiles
+                                        through
+                                        cosmetic dentistry.</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-
-                <!-- Second Slide -->
-                <div class="carousel-item">
-                    <div class="row">
-                        <!-- Fourth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Great service! I had a dental emergency, and they took care of me right away."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Alice Brown</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fifth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Professional and caring staff. I felt at ease during my treatment."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Robert Green</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sixth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "I highly recommend this clinic for its friendly atmosphere and expert care."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Sarah White</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-    <!-- appointment -->
-    <div class="container mt-5 py-4 " style=" border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <div class="row" style>
-            <!-- Left Column: Map -->
-            <div class="col-md-6 bg-light"
-                style="height: 70vh; border-right: 1px solid rgba(50, 48, 48, 0.247); border-radius: 20px;">
-                <h4 class="text-center">Our Location</h4>
-                <div class="embed-responsive" style="position: relative; overflow: hidden; height: 100%;">
-                    <iframe class="embed-responsive-item"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56661.9905440702!2d85.0127095655775!3d27.426440010492566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb49c2504c5d7f%3A0x997c19c2d7be77aa!2sHetauda%20Dental%20Home%20Pvt.%20Ltd.%20(at%20SCHOOL%20ROAD-4%2C%20NEAR%20GREEN%20HOUSE%20)!5e0!3m2!1sen!2snp!4v1727354511927!5m2!1sen!2snp"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 90%; border: 0;"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 
-            <!-- Right Column: Form -->
-            <div class="col-md-6 bg-light"
-                style="height: 70vh; border-left: 1px solid rgba(50, 48, 48, 0.247); border-radius: 20px;">
-                <h4 class="text-center">Make an Appointment</h4>
-                <form class="row g-3 mt-4">
-                    <div class="col-md-12">
-                        <label for="inputFullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="inputFullName" placeholder="Enter your full name"
-                            required>
+
+
+            <div class="container mt-5 py-4">
+                <h2 class="text-center mb-4">Our Services</h2>
+                <div class="row">
+
+                    <!-- Service 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThfB2_O9RQEKkZz-oSunlKRRH1IJEqmblwS5LZ6apH-lW81pkic30_SYWEAM2UQ7R_XBo&usqp=CAU"
+                                class="card-img-top" alt="General Checkup">
+                            <div class="card-body">
+                                <h5 class="card-title">General Checkup</h5>
+                                <p class="card-text">Regular dental checkups help maintain oral health and prevent
+                                    dental
+                                    issues.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="inputPhoneNumber" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="inputPhoneNumber"
-                            placeholder="Enter your phone number" required>
+
+                    <!-- Service 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://t4.ftcdn.net/jpg/08/41/76/61/360_F_841766112_ZS97gVOvbcu7Go374ndTGIBG6cyqAQHF.jpg"
+                                class="card-img-top" alt="Orthodontics">
+                            <div class="card-body">
+                                <h5 class="card-title">Orthodontics</h5>
+                                <p class="card-text">Braces and other orthodontic treatments to straighten teeth and
+                                    improve
+                                    bites.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Enter your city" required>
+
+                    <!-- Service 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyUPhOTONa2VYxaNHXqcjmcDNTMmtpYSdaY1MK524jUvCu6IMe9yCzgvAbUFXBQiMOStg&usqp=CAU"
+                                class="card-img-top" alt="Cosmetic Dentistry">
+                            <div class="card-body">
+                                <h5 class="card-title">Cosmetic Dentistry</h5>
+                                <p class="card-text">Procedures to enhance the appearance of your smile, including
+                                    whitening and
+                                    veneers.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="inputCareFor" class="form-label">Care For?</label>
-                        <select id="inputCareFor" class="form-select" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>General Checkup</option>
-                            <option>Orthodontics</option>
-                            <option>Cosmetic Dentistry</option>
-                            <option>Root Canal Treatment</option>
-                            <option>Dental Implants</option>
-                        </select>
+
+                    <!-- Service 4 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6hDrVR6CUfJNMF2jiNFOOpSKmg1R6DJ3MR4MJN22LHi83PoJDklRgcwhyJNngjcS2cG0&usqp=CAU"
+                                class="card-img-top" alt="Root Canal Treatment">
+                            <div class="card-body">
+                                <h5 class="card-title">Root Canal Treatment</h5>
+                                <p class="card-text">Treatment for infected or damaged teeth to relieve pain and save
+                                    the tooth.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <!-- Service 5 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSHOzN9HXsZFzFAv4O4O6G7xaRfXWlFVA5uRHIYLW8vdELeWTfbEL1KAgz8uxzhR7OQAA&usqp=CAU"
+                                class="card-img-top" alt="Dental Implants">
+                            <div class="card-body">
+                                <h5 class="card-title">Dental Implants</h5>
+                                <p class="card-text">Permanent solutions for missing teeth using implants for a natural
+                                    look and
+                                    feel.</p>
+                            </div>
+                        </div>
                     </div>
-                </form>
+
+                    <!-- Service 6 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhmdLvngowTolj0OGC48VHzleoFrbMHsbyvxxLwkbayfA4W3BQ8UzDn4ksC8lBzJ9b50&usqp=CAU"
+                                class="card-img-top" alt="Emergency Dental Care">
+                            <div class="card-body">
+                                <h5 class="card-title">Emergency Dental Care</h5>
+                                <p class="card-text">Immediate care for dental emergencies such as severe pain or
+                                    trauma.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
+
+
+
+
+            <!-- Slidable Testimonials Section -->
+            <div class="container mt-5 " id="testimonials" style="max-height: 50vh;">
+                <h2 class="text-center mb-4">What Our Patients Say</h2>
+
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                    <div class="carousel-inner">
+
+                        <!-- First Slide -->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <!-- First Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "The best dental experience I've ever had! The staff is very friendly,
+                                                and the
+                                                booking system was seamless. Highly recommend!"
+                                            </p>
+                                            <h5 class="card-title mt-3">- John Doe</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Second Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "I was able to find a clinic close to me and book an appointment
+                                                instantly.
+                                                Amazing
+                                                service and professional dentists!"
+                                            </p>
+                                            <h5 class="card-title mt-3">- Jane Smith</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Third Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "Superb experience from start to finish! The online booking system is
+                                                very easy
+                                                to
+                                                use, and I felt comfortable during my visit."
+                                            </p>
+                                            <h5 class="card-title mt-3">- Michael Johnson</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second Slide -->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <!-- Fourth Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "Great service! I had a dental emergency, and they took care of me right
+                                                away."
+                                            </p>
+                                            <h5 class="card-title mt-3">- Alice Brown</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fifth Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "Professional and caring staff. I felt at ease during my treatment."
+                                            </p>
+                                            <h5 class="card-title mt-3">- Robert Green</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sixth Testimonial -->
+                                <div class="col-md-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                "I highly recommend this clinic for its friendly atmosphere and expert
+                                                care."
+                                            </p>
+                                            <h5 class="card-title mt-3">- Sarah White</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <!-- appointment -->
+            <div class="container mt-5 py-4 " style=" border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <div class="row" style>
+                    <!-- Left Column: Map -->
+                    <div class="col-md-6 bg-light"
+                        style="height: 70vh; border-right: 1px solid rgba(50, 48, 48, 0.247); border-radius: 20px;">
+                        <h4 class="text-center">Our Location</h4>
+                        <div class="embed-responsive" style="position: relative; overflow: hidden; height: 100%;">
+                            <iframe class="embed-responsive-item"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56661.9905440702!2d85.0127095655775!3d27.426440010492566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb49c2504c5d7f%3A0x997c19c2d7be77aa!2sHetauda%20Dental%20Home%20Pvt.%20Ltd.%20(at%20SCHOOL%20ROAD-4%2C%20NEAR%20GREEN%20HOUSE%20)!5e0!3m2!1sen!2snp!4v1727354511927!5m2!1sen!2snp"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 90%; border: 0;"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Form -->
+                    <div class="col-md-6 bg-light"
+                        style="height: 70vh; border-left: 1px solid rgba(50, 48, 48, 0.247); border-radius: 20px;">
+                        <h4 class="text-center">Make an Appointment</h4>
+                        <form action="/clinic/submit/<%=clinic._id%>" class="row g-3 mt-4" method="POST">
+                            <div class="col-md-12">
+                                <label for="inputFullName" class="form-label">Full Name</label>
+                                <input type="text" name="name" class="form-control" id="inputFullName"
+                                    placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputPhoneNumber" class="form-label">Phone Number</label>
+                                <input type="text" name="phone" class="form-control" id="inputPhoneNumber"
+                                    placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" name="city" class="form-control" id="inputCity"
+                                    placeholder="Enter your city" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputCareFor" class="form-label">Care For?</label>
+                                <select id="inputCareFor" name="careFor" class="form-select" required>
+                                    <option value="">Choose...</option>
+                                    <option>General Checkup</option>
+                                    <option>Orthodontics</option>
+                                    <option>Cosmetic Dentistry</option>
+                                    <option>Root Canal Treatment</option>
+                                    <option>Dental Implants</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -399,10 +422,10 @@
 
 
 
-    <!-- Include the footer partial -->
-    <%- include('partials/footer') %>
+            <!-- Include the footer partial -->
+            <%- include('partials/footer') %>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
