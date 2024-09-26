@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: hsl(0, 4%, 97%);
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.carousel-item img {
+    height: 85vh;
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+}
+
+
+
+/* About Us Section Custom Styles */
+#about {
+    padding: 60px 0;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#about img {
+    border-radius: 10px;
+}
+
+#about .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+
+
+
+/* Testimonials Section Custom Styles */
+#testimonials {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+#testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#testimonials .carousel-item {
+    text-align: center;
+}
+
+#testimonials .card {
+    border: none;
+    margin: 10px;
+    /* Added margin for spacing between cards */
+    background-color: #fff;
+}
+
+#testimonials .card-body {
+    padding: 30px;
+}
+
+#testimonials .card-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+}
+
+#testimonials .card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 576px) {
+    #testimonials .card {
+        margin: 10px auto;
+        /* Center cards on small screens */
+    }
+}
