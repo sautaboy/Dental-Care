@@ -27,11 +27,13 @@
 
             <h1 style="margin: 2rem 0; text-align: center;">Make a Appointment To Best Clicnic</h1>
 
-            <div
-                style="display: flex;  align-items: flex-start;  flex-wrap: wrap; justify-content: space-between; gap: 10px;">
+            <div style="column-count: 4; column-gap: 1rem;">
 
                 <%clinics.forEach((clinic)=>{%>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="  display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+    break-inside: avoid;">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_yqDR53yTnezgHnCkFHHJFBWUVBTROhKICQ&s"
                             class="card-img-top" alt="...">
                         <div class="card-body">
