@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Custom styles for hover effect */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+
+        }
+
+
+        body {
+            background: rgb(235, 239, 245);
+        }
+
+        a {
+            color: #000 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Custom styles for the contact button */
+        .btn-contact {
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        /* Adjust navbar items spacing */
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .form-control {
+            margin-left: 10px;
+        }
+
+        nav {
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+            padding: 10px 30px !important;
+        }
+
+        form {
+            width: 400px;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background: #fff;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            filter: drop-shadow(0px 2px 5px #00000050);
+            transform: translateY(100%);
+            transition: .3s ease-in-out;
+            z-index: 9;
+        }
+
+        form.open {
+            transform: initial;
+        }
+
+        input,
+        textarea,
+        :placeholder-shown {
+            outline: none;
+            resize: none;
+        }
+
+        button {
+            background: rgb(68, 104, 126) !important;
+        }
+
+        form .mb-3 {
+            /* background: red; */
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: absolute; top: 0; width: 100%; z-index: 9;">
+        <div class="container-fluid">
+            <!-- Title on the left -->
+            <a class="navbar-brand" href="#" style="font-size: 32px; letter-spacing: 1px;">
+                <%=clinic.clinicName%>
+            </a>
+
+            <!-- Toggler for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Right-side items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav" style="display: flex; gap: 40px;">
+                    <!-- Dropdown with hover effect -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Meet
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Our Office</a></li>
+                            <li><a class="dropdown-item" href="#">Press and Meeting</a></li>
+                            <li><a class="dropdown-item" href="#">News</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Dental Cleaning</a></li>
+                            <li><a class="dropdown-item" href="#">Teeth Whitening</a></li>
+                            <li><a class="dropdown-item" href="#">Braces</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Before & After</a></li>
+
+                    <!-- Location icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="ri-map-pin-line"></i>
+                        </a>
+                    </li>
+
+                    <!-- Contact Us button -->
+                    <li class="nav-item">
+                        <a class="btn btn-contact ms-3" style="background: rgb(68, 104, 126); color: #fff !important;"
+                            href="#">Book Online</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+    <form action="/submit-patient" method="POST">
+        <div id="toggleForm"
+            style="width: 100%;position: fixed; top: -9.4%; background: rgb(68, 104, 126); padding: 10px 20px; right: 0; width: fit-content; display: flex; align-items: center; justify-content: space-between; color: #fff; gap: 10px; letter-spacing: 1px; cursor: pointer;">
+            <span>Contact us</span>
+            <span><i class="ri-arrow-up-s-fill"></i></span>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required placeholder="Full Name">
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Phone Number">
+        </div>
+
+        <!-- City -->
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city" required placeholder="City you live">
+        </div>
+
+        <!-- Message -->
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required
+                placeholder="Write your message..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" style="width: 100%;  font-size: 20px;">Submit</button>
+    </form>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+    <script>
+        const form = document.querySelector("form");
+        const arrowIcon = document.querySelector(".ri-arrow-up-s-fill");
+        document.querySelector("#toggleForm").addEventListener("click", () => {
+
+            // Toggle the form's visibility
+            form.classList.toggle("open");
+            // Toggle the arrow icon
+            if (form.classList.contains("open")) {
+                arrowIcon.classList.remove("ri-arrow-up-s-fill");
+                arrowIcon.classList.add("ri-arrow-down-s-fill");
+            } else {
+                arrowIcon.classList.remove("ri-arrow-down-s-fill");
+                arrowIcon.classList.add("ri-arrow-up-s-fill");
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

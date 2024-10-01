@@ -5,29 +5,99 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 
-
-
 const clinicModel = require("../models/clinic")
+const developerModel = require("../models/developer")
 const upload = require("../config/multer");
+const { error } = require('console');
 
 router.use(express.static(path.join(__dirname, 'public')));
 
 
 
 
-router.get("/clinicOwner/login", async (req, res) => {
-    res.render("clinicOwnerLogin")
+
+
+
+
+// this is fro developer 
+router.get("/developer", isLoggedIn, async (req, res) => {
+    let developer = await developerModel.findOne({ email: req.developer.email })
+    res.render("developer", { developer })
 })
 
 
 
 
 
+// route to create developer
+router.post("/createDeveloper", isLoggedIn, async (req, res) => {
+    let { fullName, email, password, phoneNumber, username } = req.body;
+
+    let developer = await developerModel.findOne({ email })
+    if (developer) return res.send("Developer already exits")
+
+
+
+    // Generate salt and hash the password
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+
+
+    // Create the new user
+    await developerModel.create({
+        fullName,
+        email,
+        password: hash,
+        phoneNumber,
+        username
+    });
+    res.status(201).send("Developer Registered");
+})
+
+router.get("/developer/login", async (req, res) => {
+    res.render("login")
+})
 
 
 
 
-// routet to update clinic
+
+// route to login
+router.post("/developer/login", async (req, res) => {
+    try {
+        let { email, password } = req.body;
+
+        // Find the user by email
+        let developer = await developerModel.findOne({ email });
+        if (!developer) return res.status(404).send("Developer not found");
+
+        // Compare the provided password with the hashed password
+        const isMatch = await bcrypt.compare(password, developer.password);
+        if (isMatch) {
+            // Generate JWT token
+            const token = jwt.sign({ email: email }, process.env.JWT_SECRET || 'developer');
+
+            // Set token as cookie
+            res.cookie("token", token);
+
+            // Redirect to profile page on success
+            return res.redirect("/admin/developer");
+        } else {
+            console.log("Invalid Credentials");
+            return res.redirect("/developer/login");
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send("Server error");
+    }
+});
+
+
+
+
+
+
+// routet to add clinic to 
 router.post('/developer/add-clinic', upload.fields([
     { name: 'teamMemberImages', maxCount: 10 },
     { name: 'aboutUsImage', maxCount: 1 },
@@ -69,6 +139,11 @@ router.post('/developer/add-clinic', upload.fields([
             }))
         };
 
+
+
+
+
+
         const clinic = new clinicModel(clinicData);
         await clinic.save();
         // res.status(201).send('Clinic added successfully!');
@@ -80,61 +155,18 @@ router.post('/developer/add-clinic', upload.fields([
 });
 
 
-
-router.get("/clinicOwner/login", async (req, res) => {
-    res.render("clinicOwnerLogin")
-})
-
-
-router.get("/clinicOwner/update-clinic", isOwnerLoggedIn, async (req, res) => {
-    let clinic = await clinicModel.findOne({ email: req.clinic.email })
-    res.render("update-clinic", { clinic })
-})
-
-router.post("/clinicOwner/login", async (req, res) => {
-    try {
-        let { email, password } = req.body;
-        // Find the user by email
-        let clinic = await clinicModel.findOne({ email });
-        console.log(clinic)
-        if (!clinic) return res.status(404).send("clinic not found");
-
-        // Compare the provided password with the hashed password
-        const isMatch = await bcrypt.compare(password, clinic.password);
-        if (isMatch) {
-            // Generate JWT token
-            const token = jwt.sign({ email: email }, process.env.JWT_SECRET || 'clinic');
-
-            // Set token as cookie
-            res.cookie("clinic", token);
-
-
-            // this can be the update 
-            res.redirect("/clinic/clinicOwner/update-clinic")
-        } else {
-            console.log("Invalid Credentials");
-            // return res.redirect("/developer/login");
-            res.send("error")
-        }
-    } catch (error) {
-        console.error("Error during login:", error);
-        res.status(500).send("Server error");
-    }
-});
-
-
-
-
-function isOwnerLoggedIn(req, res, next) {
-    const token = req.cookies.clinic;
+// midlleware to cheack whether the developer is logged in or not
+function isLoggedIn(req, res, next) {
+    const token = req.cookies.token;
     // Check if token is provided
     if (!token) {
-        return res.redirect("/clinic/clinicOwner/login")
+        return res.redirect("/admin/developer/login")
+        // res.redirect("/admin/developer/login")
     }
     try {
         // Verify the token and attach the user data to the request object
-        let data = jwt.verify(token, process.env.JWT_SECRET || "clinic");
-        req.clinic = data;
+        let data = jwt.verify(token, process.env.JWT_SECRET || "developer");
+        req.developer = data;
         next();
     } catch (error) {
         console.error("Invalid token:", error);
@@ -144,11 +176,15 @@ function isOwnerLoggedIn(req, res, next) {
 
 
 
-router.get("/clinicOwner/logout", (req, res) => {
+
+
+// route to logout
+router.get("/developer/logout", (req, res) => {
     // Clear the token cookie
-    res.clearCookie("clinic");
+    res.clearCookie("token");
+
     // Redirect to login page
-    res.redirect("/clinic/clinicOwner/login");
+    res.redirect("/admin/developer/login");
 });
 
 

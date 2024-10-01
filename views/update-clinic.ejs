@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Clinics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ebeff4;
+        }
+
+        .container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 5px 0;
+
+        }
+
+        input[type="submit"] {
+            background: red;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+
+        fieldset {
+            background: #fff;
+        }
+
+        fieldset h2 {
+            position: sticky;
+            top: 20px;
+            background: #ffff;
+        }
+
+        button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .remove-team-member,
+        #addTeamMember,
+        #addService {
+            margin-top: 10px;
+        }
+
+        .service-item {
+            margin-bottom: 15px;
+        }
+    </style>
+
+
+    <button class="btn btn-danger mb-3 " style="position: fixed; top: 20px; right: 20px; width: fit-content;">
+        <a href="/clinic/clinicOwner/logout" style="color: #fff; text-decoration: none; font-size: 20px;">Logout</a>
+    </button>
+
+    <h1>You are updating
+        <span style="color: green;">
+            <%=clinic.clinicName%>
+        </span>
+    </h1>
+    <form action="/admin/developer/add-clinic" method="POST" enctype="multipart/form-data" class="mt-4">
+        <fieldset>
+            <h2>Clinic Updation Form</h2>
+
+            <label for="clinicName">Clinic Name:</label>
+            <input type="text" name="clinicName" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="number" name="phoneNumber" required><br>
+
+            <label for="location">Location:</label>
+            <input type="text" name="location"><br>
+        </fieldset>
+
+        <fieldset>
+            <h2>Team Members</h2>
+            <div id="teamMembers">
+                <input type="text" name="teamMembers[0][name]" placeholder="Name" required>
+                <input type="text" name="teamMembers[0][role]" placeholder="Role" required>
+                <input type="text" name="teamMembers[0][description]" placeholder="Description">
+                <input type="file" name="teamMemberImages" required>
+            </div>
+            <button type="button" onclick="addTeamMember()" class="btn btn-secondary">Add Another Team
+                Member</button><br>
+        </fieldset>
+        <fieldset>
+            <h2>About Us</h2>
+            <div id="aboutUs">
+                <!-- Single image for the 'About Us' section -->
+                <input type="file" name="aboutUsImage" required><br>
+                <!-- Initial paragraph -->
+                <div>
+                    <textarea name="aboutUs[paragraphs][0][paragraph]" placeholder="About Us Paragraph"
+                        required></textarea>
+                </div>
+            </div>
+            <button type="button" onclick="addAboutUsParagraph()" class="btn btn-secondary">Add Another
+                Paragraph</button><br>
+        </fieldset>
+
+
+        <fieldset>
+            <h2>Services</h2>
+            <div id="services">
+                <input type="text" name="services[0][title]" placeholder="Service Title" required>
+                <input type="text" name="services[0][description]" placeholder="Description" required>
+                <input type="text" name="services[0][category]" placeholder="Category" required>
+                <input type="file" name="serviceImages" required>
+            </div>
+            <button type="button" onclick="addService()" class="btn btn-secondary">Add Another Service</button><br>
+        </fieldset>
+
+        <fieldset>
+            <h2>Carousel Images</h2>
+            <div id="carousel">
+                <input type="file" name="carouselImages" multiple required>
+                <p>Upload at least 5 images.</p>
+            </div><br>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </fieldset>
+    </form>
+
+
+    <script>
+        let teamMemberIndex = 1; // Start at 1 since the first member is already present
+
+        function addTeamMember() {
+            const teamMembersDiv = document.getElementById('teamMembers');
+
+            const memberDiv = document.createElement('div');
+            memberDiv.className = "team-member-item";
+            memberDiv.innerHTML = `
+            <div class="team-member" style="margin-top: 15px;">
+                <input type="text" name="teamMembers[${teamMemberIndex}][name]" placeholder="Name" required>
+                <input type="text" name="teamMembers[${teamMemberIndex}][role]" placeholder="Role" required>
+                <input type="text" name="teamMembers[${teamMemberIndex}][description]" placeholder="Description">
+                <input type="file" name="teamMemberImages" required>
+                <button type="button" class="btn btn-danger" onclick="removeTeamMember(this)" style="margin-top: 5px;">Remove</button>
+            </div>
+        `;
+            teamMembersDiv.appendChild(memberDiv);
+
+            teamMemberIndex++; // Increment the index for the next member
+        }
+
+        function removeTeamMember(button) {
+            // Remove the closest team member section
+            const memberDiv = button.closest('.team-member-item');
+            memberDiv.remove();
+        }
+    </script>
+
+    <script>
+        let aboutUsIndex = 1; // Start at 1 since the first paragraph is already present
+
+        function addAboutUsParagraph() {
+            const aboutUsDiv = document.getElementById('aboutUs');
+
+            const paragraphDiv = document.createElement('div');
+            paragraphDiv.className = "about-us-paragraph";
+            paragraphDiv.style.marginTop = "15px";
+            paragraphDiv.innerHTML = `
+                <textarea name="aboutUs[paragraphs][${aboutUsIndex}][paragraph]" placeholder="About Us Paragraph" required></textarea>
+                <button type="button" class="btn btn-danger" onclick="removeAboutUsParagraph(this)" style="margin-top: 5px;">Remove</button>
+            `;
+            aboutUsDiv.appendChild(paragraphDiv);
+
+            aboutUsIndex++; // Increment the index for the next paragraph
+        }
+
+        function removeAboutUsParagraph(button) {
+            // Remove the closest about-us paragraph
+            const paragraphDiv = button.closest('.about-us-paragraph');
+            paragraphDiv.remove();
+        }
+    </script>
+
+    <script>
+        let serviceIndex = 1; // Start at 1 since the first service is already present
+
+        function addService() {
+            const servicesDiv = document.getElementById('services');
+
+            const serviceDiv = document.createElement('div');
+            serviceDiv.className = "service-item";
+            serviceDiv.style.marginTop = "15px";
+            serviceDiv.innerHTML = `
+                <input type="text" name="services[${serviceIndex}][title]" placeholder="Service Title" required>
+                <input type="text" name="services[${serviceIndex}][description]" placeholder="Description" required>
+                <input type="text" name="services[${serviceIndex}][category]" placeholder="Category" required>
+                <input type="file" name="serviceImages" required>
+                <button type="button" class="btn btn-danger" onclick="removeService(this)" style="margin-top: 5px;">Remove</button>
+            `;
+            servicesDiv.appendChild(serviceDiv);
+
+            serviceIndex++; // Increment the index for the next service
+        }
+
+        function removeService(button) {
+            // Remove the closest service item
+            const serviceDiv = button.closest('.service-item');
+            serviceDiv.remove();
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

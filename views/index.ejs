@@ -5,19 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <!-- Include the navbar partial -->
     <%- include('partials/navbar') %>
-
-
-
         <div class="container">
             <h1 class="text-center mt-5">Welcome to Dental Care</h1>
-            <p class="text-center">Find your city dental clinics and book your appointments easily!</p>
+            <p class="text-center">Find your city dental clinics and book your appointments easily!</p>ss
 
             <!-- Carousel Section -->
             <div class="container mt-4">
@@ -44,7 +39,7 @@
                                 bulk of
                                 the card's
                                 content.</p>
-                            <a href="/clinic/<%=clinic._id%>" class="btn btn-primary">Visit Clinic</a>
+                            <a href="/patient/<%=clinic._id%>" class="btn btn-primary">Visit Clinic</a>
                         </div>
                     </div>
                     <%})%>
@@ -53,6 +48,8 @@
         </div>
 
 
+
+        
         <!-- Include the footer partial -->
         <%- include('partials/footer') %>
 
