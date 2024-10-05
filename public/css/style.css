@@ -1,26 +1,78 @@
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-a{
-    border: none !important;
-}
+     @font-face {
+         font-family: poppins;
+         src: url("/fonts/Poppins/Poppins-Black.ttf");
+     }
 
-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
+     @font-face {
+         font-family: thinPoppins;
+         src: url("/fonts/Poppins/Poppins-Thin.ttf");
+     }
 
-button {
-    background: rgb(68, 104, 126) !important;
-}
+     @font-face {
+         font-family: llightPoppins;
+         src: url("/fonts/Poppins/Poppins-Light.ttf");
+     }
 
-input[type="checkbox"],
-.btn.btn-primary,
-button {
-    color: #fff !important;
-    background: rgb(68, 104, 126) !important;
-}
+     @font-face {
+         font-family: mediumPoppins;
+         src: url("/fonts/Poppins/Poppins-Medium.ttf");
+     }
+
+     @font-face {
+         font-family: extraLight;
+         src: url("/public/fonts/Poppins/Poppins-ExtraLightItalic.ttf");
+     }
+
+
+     @font-face {
+         font-family: semiBold;
+         src: url("/public/fonts/Poppins/Poppins-SemiBold.ttf");
+     }
+
+     @font-face {
+         font-family: lightItalic;
+         src: url("/public/fonts/Poppins/Poppins-LightItalic.ttf");
+     }
+
+     * {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         text-decoration: none;
+         font-family: popins;
+     }
+
+     body {
+         height: 100%;
+         width: 100%;
+         background: rgb(233, 239, 245);
+     }
+
+     a {
+         border: none !important;
+         text-decoration: none !important;
+     }
+
+     img {
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+     }
+
+     button {
+         background: rgb(68, 104, 126) !important;
+         border: none;
+         border-radius: 10px;
+         color: #fff !important;
+     }
+
+     button a {
+         color: #fff !important;
+     }
+
+     input[type="checkbox"],
+     .btn.btn-primary,
+     button {
+         color: #fff !important;
+         background: rgb(68, 104, 126) !important;
+     }

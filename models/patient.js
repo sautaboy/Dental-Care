@@ -1,29 +1,32 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
-// Patient schema
+
 const patientSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
     phone: {
         type: String,
-        required: true
+        required: true,
     },
     city: {
         type: String,
-        required: true
+        required: true,
     },
-    careFor: {
+    message: {
         type: String,
-        required: true
     },
-    submittedAt: { type: Date, default: Date.now },
-    clinic: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Clinic'
-    }]
+    publicKeyCredential: {
+        type: Object, // Store public key credential
+    },
+    clinics: [{
+        clinicId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Clinic',
+        },
+        lastSubmissionTime: Date,
+    }],
+    ipAddress: String
 });
 
-let patientModel = mongoose.model('Patient', patientSchema);
-module.exports = { patientModel }
+module.exports = mongoose.model('Patient', patientSchema);

@@ -4,358 +4,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>
+        <%=clinic.clinicName%>
+    </title>
+
+    <!-- static css links -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/clinic-carousel.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
 
 </head>
 
 <body>
 
-    <%-include('./partials/clinic-navbar.ejs')%>
 
 
-    <!-- main intro image -->
-    <div style="
+
+
+        <%-include("./partials/clinic-navbar.ejs")%>
+
+
+
+
+
+
+        <!-- main intro image -->
+        <div style="
        background: #000;  height: 100vh; width: 100%; background-image: url('/images/clinic-hero-image.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;
         ">
-    </div>
+            <h1 class="text-center mt-5"
+                style="font-size: 102px; padding: 3rem 0; line-height: 70px; position: absolute; bottom: 8rem; right: 5rem; filter: blur(.5px); letter-spacing: 2px; color: #fff; ">
+                <%=clinic.clinicName%>
 
-    <!-- slogan -->
-    <p style="
+            </h1>
+
+        </div>
+
+
+
+
+
+        <!-- slogan -->
+        <p style="
     font-size:42px;
     width: 60%;
     margin: 8rem auto;
     text-align: center;
-line-height: 40px;
-font-family: 'Courier New', Courier, monospace;
+    line-height: 40px;
+    font-family: 'Courier New', Courier, monospace;
 
     ">
-        Grand Street Dental is re-imagining what the dental experience can be and proudly setting a new standard for
-        patient
-        care.
-    </p>
+            Grand Street Dental is re-imagining what the dental experience can be and proudly setting a new standard for
+            patient
+            care.
+        </p>
 
-    <!-- crausel part -->
-
-
-    <div class="container mt-5 " id="testimonials" style="max-height: 50vh; margin-bottom: 1rem;">
-        <h2 class="text-center mb-4">What Our Patients Say</h2>
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-            <div class="carousel-inner">
-                <!-- First Slide -->
-                <div class="carousel-item active">
-                    <div class="row">
-                        <!-- First Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "The best dental experience I've ever had! The staff is very
-                                        friendly,
-                                        and the
-                                        booking system was seamless. Highly recommend!"
-                                    </p>
-                                    <h5 class="card-title mt-3">- John Doe</h5>
+        <!-- CAROUSEL PART-->
+        <div class="container mt-5 " id="testimonials" style="max-height: 50vh; margin-bottom: 1rem;">
+            <h2 class="text-center mb-4">What Our Patients Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                    <!-- First Slide -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <!-- First Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "The best dental experience I've ever had! The staff is very
+                                            friendly,
+                                            and the
+                                            booking system was seamless. Highly recommend!"
+                                        </p>
+                                        <h5 class="card-title mt-3">- John Doe</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Second Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "I was able to find a clinic close to me and book an appointment
-                                        instantly.
-                                        Amazing
-                                        service and professional dentists!"
-                                    </p>
-                                    <h5 class="card-title mt-3">- Jane Smith</h5>
+                            <!-- Second Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "I was able to find a clinic close to me and book an appointment
+                                            instantly.
+                                            Amazing
+                                            service and professional dentists!"
+                                        </p>
+                                        <h5 class="card-title mt-3">- Jane Smith</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Third Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Superb experience from start to finish! The online booking
-                                        system is
-                                        very easy
-                                        to
-                                        use, and I felt comfortable during my visit."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Michael Johnson</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Second Slide -->
-                <div class="carousel-item">
-                    <div class="row">
-                        <!-- Fourth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Great service! I had a dental emergency, and they took care of
-                                        me right
-                                        away."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Alice Brown</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fifth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "Professional and caring staff. I felt at ease during my
-                                        treatment."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Robert Green</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sixth Testimonial -->
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        "I highly recommend this clinic for its friendly atmosphere and
-                                        expert
-                                        care."
-                                    </p>
-                                    <h5 class="card-title mt-3">- Sarah White</h5>
+                            <!-- Third Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "Superb experience from start to finish! The online booking
+                                            system is
+                                            very easy
+                                            to
+                                            use, and I felt comfortable during my visit."
+                                        </p>
+                                        <h5 class="card-title mt-3">- Michael Johnson</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                    <!-- Second Slide -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <!-- Fourth Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "Great service! I had a dental emergency, and they took care of
+                                            me right
+                                            away."
+                                        </p>
+                                        <h5 class="card-title mt-3">- Alice Brown</h5>
+                                    </div>
+                                </div>
+                            </div>
 
-        </div>
-    </div>
+                            <!-- Fifth Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "Professional and caring staff. I felt at ease during my
+                                            treatment."
+                                        </p>
+                                        <h5 class="card-title mt-3">- Robert Green</h5>
+                                    </div>
+                                </div>
+                            </div>
 
-
-    <%-include('./partials/carousel.ejs')%>
-
-
-        <h1 class="container" style="text-align: center;  margin: 3rem auto;">Our Services</h1>
-        <div class="services container"
-            style="display: flex; flex-wrap: wrap; justify-content: first baseline; gap: 10px; margin: 0 auto; width: fit-content; ">
-            <div class="card" style="width: 18rem; margin:0 auto">
-                <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem; margin:0 auto">
-                <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem; margin:0 auto">
-                <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem; margin:0 auto">
-                <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem; margin:0 auto">
-                <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div style="width: fit-content; margin: 8rem auto;">
-            <h1 style="font-weight: 300; font-size: 60px;">Welcome with us !</h1>
-            <div style="display: flex; gap: 18px; align-items: center; justify-content: center;">
-                <span style="font-size: 23px;">Folow us</span>
-                <i class="ri-instagram-line" style="font-size: 32px;"></i>
-                <span style="font-weight: bold;">@ashokgir</span>
-            </div>
-        </div>
-
-
-
-        <!-- fixed attachment -->
-        <div style="
-background-image: url('/images/carousel3.jpeg');
-background-attachment: fixed;
-height: 100vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
-
-        </div>
-
-
-
-        <!-- footer style -->
-        <style>
-            footer {
-                background-color: #3b3b3b;
-                color: #ffffff;
-                padding: 40px;
-                text-align: center;
-                font-family: Arial, sans-serif;
-            }
-
-            .appointment-section {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 30px;
-            }
-
-            .book-button {
-                background-color: #007bbd;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                margin-bottom: 10px;
-            }
-
-            .rating {
-                margin: 20px 0;
-            }
-
-            .stars {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                font-size: 24px;
-            }
-
-            .footer-details {
-                display: flex;
-                justify-content: space-around;
-                border-top: 1px solid #fff;
-                padding-top: 30px;
-                flex-wrap: wrap;
-            }
-
-            .footer-details div {
-                margin: 10px;
-            }
-
-            .footer-details h3 {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
-
-            .footer-details p {
-                margin: 5px 0;
-            }
-
-            .social-media img {
-                width: 25px;
-                margin-top: 10px;
-            }
-
-            a {
-                color: #00aaff;
-                text-decoration: none;
-            }
-        </style>
-
-        <footer>
-            <div class="appointment-section">
-                <div style="display: flex; align-items: center; gap: 30px; margin: 2rem 0;">
-                    <button class="book-button">BOOK ONLINE</button>
-                    <p style="font-weight: bold; font-size: 20px;">Find available appointments</p>
-                </div>
-                <div class="rating">
-                    <p>AVERAGE RATING</p>
-                    <div class="stars">
-                        <span>⭐️⭐️⭐️⭐️⭐️</span>
-                        <span>5.0</span>
+                            <!-- Sixth Testimonial -->
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            "I highly recommend this clinic for its friendly atmosphere and
+                                            expert
+                                            care."
+                                        </p>
+                                        <h5 class="card-title mt-3">- Sarah White</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>495 Reviews</p>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <%-include("./partials/clinic-carousel.ejs")%>
+
+
+
+
+
+            <h1 class="container" style="text-align: center;  margin: 3rem auto;">Our Services</h1>
+            <div class="services container"
+                style="display: flex; flex-wrap: wrap; justify-content: first baseline; gap: 10px; margin: 0 auto; width: fit-content; ">
+                <div class="card" style="width: 18rem; margin:0 auto">
+                    <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Servic Title</h5>
+                        <p class="card-text">Some quick example text to build on the Servic Title and make up the bulk
+                            of
+                            the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+
+
+                <div class="card" style="width: 18rem; margin:0 auto">
+                    <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Servic Title</h5>
+                        <p class="card-text">Some quick example text to build on the Servic Title and make up the bulk
+                            of
+                            the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+
+
+                <div class="card" style="width: 18rem; margin:0 auto">
+                    <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Servic Title</h5>
+                        <p class="card-text">Some quick example text to build on the Servic Title and make up the bulk
+                            of
+                            the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+
+
+                <div class="card" style="width: 18rem; margin:0 auto">
+                    <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Servic Title</h5>
+                        <p class="card-text">Some quick example text to build on the Servic Title and make up the bulk
+                            of
+                            the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+
+
+                <div class="card" style="width: 18rem; margin:0 auto">
+                    <img src="/images/carousel3.jpeg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Servic Title</h5>
+                        <p class="card-text">Some quick example text to build on the Servic Title and make up the bulk
+                            of
+                            the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div style="width: fit-content; margin: 8rem auto;">
+                <h1 style="font-weight: 300; font-size: 60px;">Connect with us !</h1>
+                <div style="display: flex; gap: 18px; align-items: center; justify-content: center;">
+                    <span style="font-size: 23px;">Folow us</span>
+                    <i class="ri-instagram-line" style="font-size: 32px;"></i>
+                    <span style="font-weight: bold;">@ashokgir</span>
                 </div>
             </div>
 
-            <div class="footer-details container">
-                <div class="office-hours">
-                    <h3 style="font-size: 23px;">Office Hours</h3>
-                    <p style="opacity: .7; font-size: small; font-weight: 200;">Mon 9:00 am - 5:00 pm</p>
-                    <p style="opacity: .7; font-size: small; font-weight: 200;">Tue 9:00 am - 5:00 pm</p>
-                    <p style="opacity: .7; font-size: small; font-weight: 200;">Wed 9:00 am - 5:00 pm</p>
-                    <p style="opacity: .7; font-size: small; font-weight: 200;">Thu 9:00 am - 5:00 pm</p>
-                    <p style="opacity: .7; font-size: small; font-weight: 200;">Fri 9:00 am - 5:00 pm</p>
-                </div>
 
-                <div class="contact-info">
-                    <h3 style="font-size: 23px;">Contact Us</h3>
-                    <p style="opacity: .7; font-size: small;">57 Grand Street, Brooklyn, NY 11249</p>
-                    <p style="opacity: .7; font-size: small;">(718) 942 9942</p>
-                    <p style="opacity: .7; font-size: small;"><a href="mailto:hello@grandstreetdental.com">hello@grandstreetdental.com</a>
-                    </p>
-                </div>
 
-                <div class="social-media">
-                    <h3 style="font-size: 23px;">Instagram</h3>
-                    <p style="opacity: .7; font-size: small;">“The cool Brooklyn dentist who wants teeth to look as nice as her Instagram
-                        feed”</p>
-                    <p style="opacity: .7; font-size: small;">- New York Magazine</p>
-                    <a href="">
-                        <i class="ri-instagram-line" style="font-size: 32px; color: #fff;"></i>
-                    </a>
-                </div>
+            <!-- fixed attachment -->
+            <div style="
+                background-image: url('/images/carousel3.jpeg');
+                background-attachment: fixed;
+                height: 100vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
             </div>
-        </footer>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <%-include("./partials/clinic-footer.ejs")%>
+
+
+
+
 </body>
 
 </html>
